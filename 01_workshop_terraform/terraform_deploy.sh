@@ -8,7 +8,7 @@ META_LIST=$(curl -s "http://metadata.google.internal/computeMetadata/v1/instance
 for meta in $META_LIST
 do
   if [ $meta = "repo_bucket" ]; then
-     tf_version=$(curl -s "http://metadata.google.internal/computeMetadata/v1/instance/attributes/repo_bucket" -H "Metadata-Flavor: Google")
+     repo_bucket=$(curl -s "http://metadata.google.internal/computeMetadata/v1/instance/attributes/repo_bucket" -H "Metadata-Flavor: Google")
      echo "$repo_bucket"
   fi
   if [ $meta = "tf_version" ]; then
